@@ -1,0 +1,39 @@
+.cardContainer{
+    height: 400px;
+    width: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+    color: #e25329;
+}
+
+.cardImage{
+    height: 75%;
+    margin: 2px 2px 0px 2px;
+}
+
+.cardDetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height:20%;
+    margin: 0 2px 2px 2px;
+}
+
+.prevImageCard{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.stockPriceCard{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width:600px){
+    .cardContainer{
+        height: 350px;
+        width: 300px;
+    }
+}

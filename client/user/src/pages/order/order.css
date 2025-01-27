@@ -1,0 +1,21 @@
+
+
+.order-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    /* border: solid red; */
+}
+
+.order-header h1{
+    font-size: 20pt;
+    font-weight: 100;
+}
+
+.order-content{
+    /* border: solid green; */
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}

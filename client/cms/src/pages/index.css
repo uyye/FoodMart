@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+}
+
+.container{
+    display: flex;
+    overflow: hidden; /* Menghilangkan semua scroll, baik horizontal maupun vertikal */
+    box-sizing: border-box;
+}
