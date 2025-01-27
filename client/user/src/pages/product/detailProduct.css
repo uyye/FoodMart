@@ -1,0 +1,97 @@
+.detailForm{
+    display: flex;
+    margin: 10px;
+}
+.detailImageFrame{
+    /* border: solid red; */
+    flex: 1;
+    overflow: hidden;
+}
+
+.detailImage{
+    width: 100%;
+    object-fit: cover;
+}
+
+.detailProduct{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+}
+
+.details{
+    display: flex;
+    /* border: solid red; */
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stockPrice{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.orderForm{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formQuantity{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.formQuantity > div{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    font-size: 16pt;
+    color: #ffff;
+}
+
+.detailQuantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e25329;
+    width: 80px;
+    height: 40px;
+}
+
+.quantityButton{
+    background-color: #e25329;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 16pt;
+    color: #ffff;
+
+}
+
+.formSubmit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap:5px;
+}
+
+.orderSubmit{
+    background-color: #e25329;
+    flex: 1;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    font-size: 16pt;
+    color: #ffff;
+}
+
+@media (max-width:768px) {
+    .detailContainer{
+        flex-direction: column;
+    }
+}

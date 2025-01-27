@@ -1,0 +1,114 @@
+/* ORDER */
+.order-button {
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background-color: #A04000; /* Oranye lebih gelap saat hover */
+}
+
+/* FILTER */
+.fillter-button{
+    font-size: 11pt;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease; 
+    background-color: #fafafa;
+    padding: 5px;
+    cursor: pointer;
+    color: #e25329;
+}
+
+.fillter-button:hover{
+    background-color: #e25329;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); 
+    color: #FFFFFF;    
+}
+
+/* DETAIL */
+.detail-button {
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.detail-button:hover {
+    background-color: #A04000; /* Oranye lebih gelap saat hover */
+}
+
+/* DELETE */
+
+.delete-button {
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.delete-button:hover {
+    background-color: #A04000; /* Oranye lebih gelap saat hover */
+}
+
+/* UPDATE */
+
+.update-button {
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-button:hover {
+    background-color: #A04000; /* Oranye lebih gelap saat hover */
+}
+
+/* SUBMIT */
+
+.submit-button {
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #A04000; /* Oranye lebih gelap saat hover */
+}
+
+.contact-button{
+    background-color: #4caf50; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-button:hover{
+    background-color: #45a049; /* Oranye lebih gelap saat hover */
+}

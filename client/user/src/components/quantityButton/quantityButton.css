@@ -1,0 +1,16 @@
+.qbContainer{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    font-size: 16pt;
+    color: #ffff;
+}
+
+.quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e25329;
+    width: 80px;
+    height: 40px;
+}
