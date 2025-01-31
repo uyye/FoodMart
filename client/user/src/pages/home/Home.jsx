@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchProducts, setPage, setSort, setFilter, setSearch } from "../../features/products/productSlice"
 import { Link } from "react-router-dom"
 import FilterButton from "../../components/button/FilterButton"
+import {ColorRing} from "react-loader-spinner"
 
 export default function Home() {
     const dispatch = useDispatch() 
-    const { products, totalItems, page, sort, filter, search } = useSelector((state)=>state.products)
+    const { products, totalItems, page, sort, filter, search, loading } = useSelector((state)=>state.products)
     const totalPages = Math.ceil(totalItems / 10)
 
     const handlePageChange = (page) => {
@@ -87,7 +88,20 @@ export default function Home() {
             <div className="cardFrame">
                 <div> 
                     {
-                        products?
+                        loading? (
+                            <div>
+                                <ColorRing
+                                visible={true}
+                                height="80"
+                                width="80"
+                                ariaLabel="color-ring-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="color-ring-wrapper"
+                                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                                />
+                            </div>
+                        ):
+                        products.length > 0?
                         products.map((x,y)=>{
                             return(
                                 <Link key={y} to={`/Product/${x.id}`}>

@@ -9,8 +9,6 @@ class OrderController{
         const userId = req.user.id
         let totalPrice = 0
         let transaction
-
-        console.log(req.body, "REQUEST DATA");
         
 
         try {

@@ -40,46 +40,12 @@ export default function DetailProduct() {
     }
 
     const handleButtonAddToCart = async()=>{
-
         dispatch(fetchInputCart(id, quantity, navigate))
-        // try {
-        //     await instance({
-        //         method:"post",
-        //         url:"/carts",
-        //         data:{
-        //             productId:id,
-        //             quantity:quantity
-        //         },
-        //         headers:{
-        //             "Authorization":`bearer ${localStorage.getItem("access_token")}`,
-        //             "Content-Type":"application/json"
-        //         }
-        //     })
-        //     Swal.fire({
-        //         title:"Success",
-        //         text:"Berhasil menambahkan produk ke keranjang",
-        //         icon:"success",
-        //         showConfirmButton:false,
-        //         timer:2000
-        //     })
-            
-            
-        // } catch (error) {
-        //     if (error.response.status === 401) {
-        //         const result = await Swal.fire({
-        //             title:"Anda belum login?",
-        //             text:"Silahkan login terlebih dahulu",
-        //             icon:"question",
-        //             showCancelButton: true,
-        //             confirmButtonText:"Login",
-        //             cancelButtonText:"Kembali"
-        //         })
+    }
 
-        //         if(result.isConfirmed){
-        //             navigate("/login")
-        //         }
-        //     }
-        // }
+    const handleBuyNow = ()=>{
+        const selectedProducts = [{Product:product, quantity}]
+        navigate("/checkout", {state:{selectedProducts}})
     }
 
     useEffect(()=>{
@@ -115,7 +81,7 @@ export default function DetailProduct() {
                         </div>
                         <div className="formSubmit">
                             <button className="orderSubmit" onClick={handleButtonAddToCart}>Tambah ke keranjang</button>
-                            <button className="orderSubmit">Beli sekarang</button>
+                            <button className="orderSubmit" onClick={handleBuyNow}>Beli sekarang</button>
                         </div>
                     </div>
                 </div>

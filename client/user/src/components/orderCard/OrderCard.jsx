@@ -44,7 +44,7 @@ export default function OrderCard({order}) {
                         {
                             order.OrderDetails.map((item, index)=>{
                                 return(
-                                    <tr>
+                                    <tr key={index}>
                                         <td>{item.Product.name}</td>
                                         <td>{item.quantity}</td>
                                         <td>{formatIDR(item.subTotal)}</td>

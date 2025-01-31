@@ -1,26 +1,33 @@
 import {createSlice} from "@reduxjs/toolkit"
 import instance from "../../api/axiosInstance"
-import Swal from "sweetalert2"
-import { useNavigate } from "react-router-dom"
 
 const orderSlice = createSlice({
     name:"Orders",
     initialState:{
-        orders:[]
+        orders:[],
+        loading:false,
+        error:null
     },
     reducers:{
         setOrder:(state, action)=>{
             state.orders = action.payload
+        },
+        setLoading:(state, action)=>{
+          state.loading = action.payload
+        },
+        setError: (state, action)=>{
+          state.error = action.payload
         }
     }
 })
 
-export const {setOrder} = orderSlice.actions
+export const {setOrder, setLoading, setError} = orderSlice.actions
 
 
 export const fetchOrder = ()=>{
     return async (dispatch)=>{
         try {
+          dispatch(setLoading(true))
             const {data} = await instance({
                 method:"get",
                 url:"/orders",
@@ -30,8 +37,9 @@ export const fetchOrder = ()=>{
             })
             dispatch(setOrder(data))
         } catch (error) {
-            console.log(error);
-            
+            dispatch(setError(error))
+        } finally{
+          dispatch(setLoading(false))
         }
     }
 }

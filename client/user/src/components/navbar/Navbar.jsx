@@ -11,9 +11,11 @@ export default function Navbar() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const token = localStorage.getItem("access_token")
+    
 
     const cart = useSelector((state)=>state.cart.cart)
-    const totalCart = cart.CartItems?.length
+    const totalCart = cart?.CartItems?.length || 0
     
 
     const handleLogOutButton = () => {
@@ -28,8 +30,10 @@ export default function Navbar() {
     const isLoggedIn = !!localStorage.getItem("access_token");
 
     useEffect(()=>{
-        dispatch(fetchCart())
-    },[dispatch])
+        if(token){
+            dispatch(fetchCart())
+        }
+    },[dispatch, totalCart])
 
     return (
         <nav className="navbarContainer">

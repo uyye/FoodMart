@@ -77,8 +77,8 @@ export const fetchInputCart = (productId, quantity, navigate)=>{
             console.log(error);
             if (error.response.status === 401) {
                 const result = await Swal.fire({
-                    title:"Anda belum login?",
-                    text:"Silahkan login terlebih dahulu",
+                    title:"Belum login?",
+                    text:"Login untuk mulai berbelanja",
                     icon:"question",
                     showCancelButton: true,
                     confirmButtonText:"Login",

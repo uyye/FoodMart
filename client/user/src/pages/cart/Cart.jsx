@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 export default function Cart() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const cart = useSelector((state)=>state.cart.cart)
+    const cart = useSelector((state)=>state.cart.cart) || {CartItems :[]}
     const [selectedItems, setSelectedItems] = useState([])
 
     console.log(cart.CartItems?.length, "DI CART");

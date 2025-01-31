@@ -68,7 +68,7 @@ export default function Home() {
     }, [])
 
     return(
-        <div className="page-container">
+        <div className="page-container ">
             <h1>Dashboard</h1>
             <div className="home-header">
                 {
@@ -104,7 +104,7 @@ export default function Home() {
                 <div className="topSale">
                     {
                         topOrder?.map((item, index)=>(
-                            <div className="topSale-item">
+                            <div className="topSale-item" key={index}>
                                 <img src={item.productImage} alt="" className="topSale-image" />
                                 <div className="topSale-content">
                                     <p>{item.productName}</p>
