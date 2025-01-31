@@ -41,9 +41,6 @@ export default function Checkout() {
             productId:product.Product.id,
             quantity:product.quantity    
         }))
-
-        console.log(products, "CEK DATA PRODUCT DI ELEMENT");
-        
         
         dispatch(fetchInputOrder(products, contactUser, navigate))
     }

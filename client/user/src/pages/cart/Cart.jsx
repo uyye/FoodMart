@@ -11,9 +11,6 @@ export default function Cart() {
     const dispatch = useDispatch()
     const cart = useSelector((state)=>state.cart.cart) || {CartItems :[]}
     const [selectedItems, setSelectedItems] = useState([])
-
-    console.log(cart.CartItems?.length, "DI CART");
-    console.log(cart.CartItems, "DI CART");
     
 
     const handleQuantityChange = (productId, newQuantity)=>{
@@ -55,8 +52,6 @@ export default function Cart() {
 
     const handleCheckout = ()=>{
         const selectedProducts = cart.CartItems?.filter((item)=>selectedItems.includes(item.id))
-        console.log(selectedProducts, "saat di triger");
-        
         if(!selectedProducts?.length){
             alert("productmu mana manis")
             return;
