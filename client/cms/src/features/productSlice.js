@@ -31,11 +31,15 @@ const productSlice = createSlice({
         },
         setDetailProduct:(state, action)=>{
             state.detailProduct = action.payload
+        },
+        setAddProduct:(state, action)=>{
+            console.log(action.payload, 'state add product')
+            state.products.push(action.payload)
         }
     }
 })
 
-export const {setProducts, setPage, setFilter, setSearch, setSort, setDetailProduct} = productSlice.actions
+export const {setProducts, setPage, setFilter, setSearch, setSort, setDetailProduct, setAddProduct} = productSlice.actions
 
 export const fetchDataProduct = ()=>{    
     return async (dispatch, getState)=>{
@@ -85,7 +89,8 @@ export const fetchInputProduct = (product)=>{
                 data:product
             })
 
-            dispatch(fetchDataProduct())
+            console.log(data, 'PRODUCT INPUTAN BARU')
+            dispatch(setAddProduct(data.product))
         } catch (error) {
             console.log(error);
             

@@ -5,10 +5,10 @@ import Footer from "../components/footer/Footer"
 
 export default function Index() {
     return(
-        <>
+        <div className="main__container">
             <Navbar/>
             <Outlet/>
             <Footer/>
-        </>
+        </div>
     )
 }

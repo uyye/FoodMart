@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../app.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDataProduct, fetchDetailProduct, setFilter, setPage, setSearch } from "../../features/productSlice";
+import DetailProduct from "./DetailProduct";
+// import DetailProduct from "./DetailProduct/DetailProduct";
 
 // ICON
 import { BiDetail } from "react-icons/bi";
 import { MdOutlineAddBox } from "react-icons/md";
-import DetailProduct from "../DetailProduct/DetailProduct";
-import InputProduct from "../InputProduct/InputProduct";
 import { CiEdit } from "react-icons/ci";
+import InputProduct from "./InputProduct";
 
 export default function Product() {
     const dispatch = useDispatch();
@@ -72,7 +73,7 @@ export default function Product() {
                     ))}
                 </ul>
             </div>
-            <div className="product-fitur">
+            <div className="page-fitur">
                 <input
                     type="search"
                     className="search-input"
@@ -81,7 +82,7 @@ export default function Product() {
                     onChange={(e)=>handelSearchChange(e.target.value)}
                 />
                 <button className="product-button" onClick={()=>setInputModal(true)}>
-                    <MdOutlineAddBox /> Product
+                    <MdOutlineAddBox /> <span>Product</span>
                 </button>
             </div>
             <div className="product-table">
@@ -107,10 +108,10 @@ export default function Product() {
                                     <td>{product.category}</td>
                                     <td className="td-action">
                                         <button className="product-button" onClick={()=>handleOpenDetail(product?.id)}>
-                                            <BiDetail /> Detail
+                                            <BiDetail /> <span>Detail</span>
                                         </button>
                                         <button className="product-button" onClick={()=>handleOpenEdit(product?.id)}>
-                                            <CiEdit /> Edit
+                                            <CiEdit /> <span>Edit</span>
                                         </button>
                                     </td>
                                 </tr>

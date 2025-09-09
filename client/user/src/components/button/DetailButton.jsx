@@ -1,8 +1,8 @@
 import "./button.css"
 
-export default function DetailButton({children}) {
+export default function DetailButton({children, modal}) {
     return(
-        <button className="detail-button">
+        <button className="detail-button" onClick={modal}>
             {children}
         </button>
     )

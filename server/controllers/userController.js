@@ -14,33 +14,14 @@ class UserController{
                 user:{
                     id:create.id,
                     name:create.name,
-                    email:create.email
+                    email:create.email,
+                    role:create.role
                 }
             }
             res.status(201).json(result)
         } catch (error) {
             next(error)
             console.log(error);
-        }
-    }
-
-    static async getUserOrder(req, res, next){
-        try {
-            const data = await User.findAll({
-                include:{
-                    model:Order,
-                    include:{
-                        model: OrderDetail
-                    }
-                }
-            })
-
-            
-            res.status(200).json(data)
-            
-        } catch (error) {
-            console.log(error);
-            next(error)
         }
     }
 
@@ -127,6 +108,8 @@ class UserController{
         }
     }
 
+    //ADMIN
+
     static async getUser(req, res, next){
         try {
             let option = {where:{},attributes:{exclude:["password"]}}
@@ -138,7 +121,14 @@ class UserController{
             }
 
             if(search){
-                option.where.name = {[Op.iLike] : `%${search}%`}
+                // option.where.name = {[Op.iLike] : `%${search}%`}
+                option.where = {
+                    [Op.or]:[
+                        {name:{[Op.iLike]:`%${search}%`}},
+                        {role:{[Op.iLike]:`%${search}%`}},
+                        {email:{[Op.iLike]:`%${search}%`}}
+                    ]
+                }
             }
 
             if(page){
@@ -154,6 +144,24 @@ class UserController{
         }
     }
 
+    static async deleteUser(req, res, next){
+        try {
+            const {id} = req.params
+            const user = await User.findByPk(id)
+            if(!user){
+                throw{name:"NotFound", status:"404", message:`User with ID ${id} not found`}
+            }
+
+            await User.destroy({where:{id}})
+            res.status(200).json({message:"Delete user successfully"})
+        } catch (error) {
+            console.log(error);
+            next(error)
+        }
+    }
+
+
+    //PARAMS
     static async getUserById(req, res, next){
         try {
             const {id} = req.params

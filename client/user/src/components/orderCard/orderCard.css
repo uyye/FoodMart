@@ -13,6 +13,11 @@
     margin: 25px;
 }
 
+.orderCard-container:hover{
+    box-shadow: 0 0 15px #D2691E;
+    transition: all 0.3s ease-in-out;
+}
+
 .cardHeader{
     /* border: solid red; */
     height: 20%;
@@ -40,7 +45,14 @@
 }
 
 .status-tag{
-    background-color: #FF7F50;
+    background-color: #4CAF50;
+    color: #ffff;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+}
+.status-tag-pending{
+    background-color: #FFC107;
     color: #ffff;
     padding: 5px;
     border: none;

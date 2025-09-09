@@ -1,130 +1,124 @@
-.navbarContainer {
+/* Navbar Container */
+.navbar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #e25329;
     height: 60px;
-    align-items: center;
-    padding: 10px;
-    top: 0;
+    padding: 0 20px;
     position: sticky;
-    color: #ffff;
-    margin: 0px 10px 10px 10px;
+    top: 0;
+    z-index: 1000;
+    color: #fff;
     border-radius: 0 0 10px 10px;
 }
 
-.cartIcon {
-    position: relative;
-    display: inline-block;
+/* Logo */
+.navbar__logo h1 {
+    margin: 0;
 }
 
-.cartBadge {
+/* Navbar Menus */
+.navbar__menus {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    flex-grow: 1;
+}
+
+.navbar__menus a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar__menus li:hover {
+    color: #ffa600;
+    transition: background-color 0.3s ease;
+}
+
+/* Cart Icon */
+.navbar__cart {
+    position: relative;
+    cursor: pointer;
+}
+
+
+.navbar__badge {
     position: absolute;
-    top: -8px; /* Atur posisi badge */
-    right: -8px; /* Atur posisi badge */
-    background-color: #ffa600; /* Warna merah untuk badge */
+    top: -8px;
+    right: -8px;
+    background-color: #ffa600;
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
-    width: 20px; /* Lebar badge */
-    height: 20px; /* Tinggi badge */
-    border-radius: 50%; /* Membuat badge berbentuk lingkaran */
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
-    text-align: center;
 }
 
-
-
-.navbarMenus {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    list-style: none;
-    flex-grow: 1;
-    cursor: pointer;
-}
-
-a {
-    text-decoration: none;
-    color: #ffff;
-}
-
-.orderButton {
-    display: flex;
-    font-size: 2rem;
-    cursor: pointer;
-    margin: 10px;
-    list-style: none;
-    gap: 10px;
-    position: relative;
-}
-
-.orderButton li {
-    position: relative;
-}
-
-.tooltip {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    visibility: hidden; /* Awal: Tidak terlihat */
-    opacity: 0; /* Awal: Transparan */
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    transform: translateY(-10px); /* Efek muncul */
-    top:calc(100% + 5px) ; /* Tooltip berada di atas elemen utama */
-    left: 50%;
-    transform: translate(-50%, 10px) translateY(-10px); /* Memusatkan tooltip */
-    z-index: 100;
-}
-.orderButton li{
-    position: relative;
-}
-
-.orderButton li:hover .tooltip {
-    visibility: visible; /* Muncul saat hover */
-    opacity: 1; /* Tidak transparan */
-    transform: translate(-50%) translateY(0); /* Kembali ke posisi */
-}
-
-.hamburger {
+/* Hamburger */
+.navbar__hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
 }
 
-.hamburger div {
+.navbar__hamburger div {
     width: 30px;
     height: 4px;
-    background-color: #333;
+    background-color: #fff;
     border-radius: 2px;
 }
 
+/* Hamburger Animation */
+.navbar__hamburger.active div:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.navbar__hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar__hamburger.active div:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.navbar__hamburger div {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .navbarMenus {
+    .navbar__menus {
         flex-direction: column;
         background-color: #e25329;
         position: absolute;
-        top: 80px;
-        width: 100%;
-        align-items: center;
-        left: 0;
+        top: 0;
+        width: 40%;
         height: 0;
+        left: -100%;
         overflow: hidden;
-        transition: height 0.3s ease;
+        transition: 0.5s ease;
+        z-index: 999;
+        padding: 0 20px;
+        justify-content: flex-start;
     }
 
-    .navbarMenus.active {
-        height: 150px;
+    .navbar__menus.active {
+        height: 100vh; /* Sesuaikan dengan jumlah menu */
+        left: 0;
     }
 
-    .hamburger {
+    .navbar__menus li {
+        padding: 10px 0;
+    }
+
+    .navbar__hamburger {
         display: flex;
-        margin-left: auto;
     }
 }

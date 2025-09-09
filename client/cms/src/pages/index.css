@@ -10,4 +10,6 @@
     display: flex;
     overflow: hidden; /* Menghilangkan semua scroll, baik horizontal maupun vertikal */
     box-sizing: border-box;
+    position: relative;
+    z-index: 0;
 }

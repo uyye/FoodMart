@@ -7,26 +7,37 @@ const cartSlice = createSlice({
     initialState:{
         cart:{},
         status:"idle",
-        error:null
+        error:null,
+        loading:false
     },
     reducers:{
         setCart:(state, action)=>{
             state.cart = action.payload
         },
-
         setPostCart:(state, action)=>{
+            // console.log(state.cart.CartItems.length, "SEBELUM PUSH CART");
             state.cart.CartItems.push(action.payload)
+            // console.log(state.cart.CartItems.length, "SEBELUM SETELAH CART");
+        },
+        setUpdateQuantity:(state, action)=>{
+            const updatedItem = action.payload.cartItem
+            state.cart.CartItems?.filter((item)=>item.id === updatedItem.id)
+
+
         },
         updateStatus:(state, action)=>{
             state.status = action.payload
         },
         setError:(state, action)=>{
             state.error = action.payload
+        },
+        setLoading:(state, action)=>{
+            state.loading = action.payload
         }
     }
 })
 
-export const {setCart, updateStatus, setError, setPostCart} = cartSlice.actions
+export const {setCart, updateStatus, setError, setPostCart, setUpdateQuantity, setLoading} = cartSlice.actions
 
 export const fetchCart = ()=>{
     return async (dispatch)=>{
@@ -38,6 +49,7 @@ export const fetchCart = ()=>{
                     "Authorization":`bearer ${localStorage.getItem("access_token")}`
                 }
             })
+            
             dispatch(setCart(data))
         } catch (error) {
             console.log(error);
@@ -60,20 +72,9 @@ export const fetchInputCart = (productId, quantity, navigate)=>{
                     "Content-Type":"application/json"
                 }
             })
-
             dispatch(setPostCart(data.cartItem))
-            console.log(data.cartItem, "SLICE");
-            
-            
-            Swal.fire({
-                title:"Success",
-                text:"Berhasil menambahkan produk ke keranjang",
-                icon:"success",
-                showConfirmButton:false,
-                timer:2000
-            })
-            
         } catch (error) {
+            
             console.log(error);
             if (error.response.status === 401) {
                 const result = await Swal.fire({
@@ -103,13 +104,35 @@ export const updateCartQuantity =({productId, quantity})=>{
                 data:{productId, quantity},
                 headers:{"Authorization":`Bearer ${localStorage.getItem("access_token")}`}
             })
-            dispatch(updateStatus("succeeded"))
-            console.log("MASUK");
-            
+            console.log(data, "SETELAH UPDATE QUANTITY");
+            dispatch(setUpdateQuantity(data))
+            dispatch(updateStatus("succeeded"))            
         } catch (error) {
             console.log(error);
             dispatch(updateStatus("failed"))
             dispatch(setError(error.response?.data))
+        }
+    }
+}
+
+export const fetchDeleteCartByProductId = (productId)=>{
+    return async (dispatch)=>{
+        try {
+            dispatch(setLoading(true))
+            const deleteCart = await instance({
+                method:'delete',
+                url:`/carts/item/${productId}`,
+                headers:{
+                    "Content-Type":'aplication/json',
+                    "Authorization":`Bearer ${localStorage.getItem('access_token')}`
+                }
+            })
+            dispatch(fetchCart())
+            
+        } catch (error) {
+            console.log(error);
+        } finally{
+            dispatch(setLoading(false))
         }
     }
 }

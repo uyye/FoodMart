@@ -81,8 +81,7 @@ export default function Home() {
             </form>
             <div className="filter-form">
                 <FilterButton handler={()=>handleFilter("")}>Semua</FilterButton>
-                <FilterButton handler={()=>handleFilter("Makanan")}>Makanan berat</FilterButton>
-                <FilterButton handler={()=>handleFilter("Makanan R")}>Makanan ringan</FilterButton>
+                <FilterButton handler={()=>handleFilter("Makanan")}>Makanan</FilterButton>
                 <FilterButton handler={()=>handleFilter("Minuman")}>Minuman</FilterButton>
             </div>
             <div className="cardFrame">

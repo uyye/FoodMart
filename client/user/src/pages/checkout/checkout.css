@@ -1,6 +1,9 @@
 .checkoutContainer{
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    /* border: solid green; */
+    /* height: 100%; */
 }
 
 .checkoutHead{
@@ -11,9 +14,15 @@
     padding-left: 100px;
 }
 
+.checkoutHead h1{
+    font-size: clamp(1rem, 4vw, 2.5rem);
+}
+
 .checkoutContent{
     display: flex;
     gap: 5px;
+    /* border: solid red; */
+    font-size: 12px;
 }
 
 .formContent{
@@ -37,7 +46,7 @@
     height: 20px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 20px;
     outline: none;
     transition: border-color 0.3 ease;
 }
@@ -67,4 +76,10 @@
     height: 40px;
     align-items: center;
     justify-content: center;
+}
+
+@media(max-width:768px){
+    .checkoutContent{
+        flex-direction: column;   
+    }
 }

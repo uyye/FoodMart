@@ -10,6 +10,10 @@
     /* border: solid red; */
 }
 
+.center-container{
+    border: solid red;
+}
+
 .skeleton {
     width: 100%;
     height: 20px;
@@ -116,6 +120,7 @@ h2{
 }
 
 .topSale-item {
+    font-size: clamp(10px, 2vw, 12px);
     display: flex;
     gap: 15px;
     align-items: center;
@@ -151,7 +156,7 @@ h2{
 
 /* PRODUCT */
 
-.product-fitur{
+.page-fitur{
     display: flex;
     justify-content: space-between;
     /* border: solid red; */
@@ -224,8 +229,8 @@ h2{
 
 .table-column{
     margin-top: 20px;
-    width: 100%;
     border-collapse: collapse ;
+    width: 100%;
 }
 
 .table-column th,
@@ -272,7 +277,6 @@ h2{
 }
 
 /* MODAL */
-
 .modal-overlay{
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
@@ -284,15 +288,18 @@ h2{
     align-items: center;
     z-index: 1000;
     position: fixed;
+    /* border: solid yellow; */
 }
 
 .modal-container{
     background-color: #f9f9f9;
-    width: 50%;
-    height: 80%;
+    width: 50vw;
+    /* height: 80%; */
     border: none;
     border-radius: 5px;
     padding: 10px;
+    /* border: solid red; */
+    position: absolute;
 }
 
 .modal-header{
@@ -346,6 +353,7 @@ h2{
     gap: 10px;
     align-items: center;
     padding-right: 10px;
+    margin-top: 20px;
 }
 
 .label-input{
@@ -355,20 +363,44 @@ h2{
     margin-bottom: 5px;
 }
 
-.input-text{
-    border: 1px solid #e25329;
+
+.input-text {
+    border: 1.5px solid #e25329;
     border-radius: 5px;
     outline: none;
-    padding: 5px;
+    padding: 5px; 
+    width: 100%;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.input-text:focus {
+    border-color: #d1461e; /* Warna lebih gelap saat aktif */
+    box-shadow: 0 0 5px rgba(226, 83, 41, 0.5); /* Tambah efek glow */
 }
 
 /* DETAIL USER */
+
+.profile-page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container{
+    width: 600px;
+}
 
 .detail-profile{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
     padding: 10px;
     background-color: #fff;
+}
+
+.detail-profile ul{
+    font-size: clamp(10px, 2vw, 12px);
 }
 
 .photo-cover{
@@ -400,8 +432,9 @@ h2{
     padding: 10px;
     /* background-color: #e25329; */
     border-radius: 10px;
-
+    font-size: clamp(10px, 2vw, 12px);
 }
+
 
 .card-order{
     margin-top: 10px;
@@ -419,11 +452,12 @@ h2{
 }
 
 .ch{
+    /* border: solid green; */
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    margin-bottom: 5px;
 }
+
 
 .status-tag{
     background-color: #FF7F50;
@@ -439,6 +473,8 @@ h2{
     margin-top: 10px;
     padding: 10px;
     background-color: #ffff;
+    font-size: clamp(10px, 2vw, 12px);
+    border: solid gray;
 }
 
 .recipient{
@@ -449,4 +485,291 @@ h2{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 5px;
 
+}
+
+/* ORDER */
+.order-header{
+    /* border: solid red; */
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-order{
+    /* border: solid blue; */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:10px;
+    font-size: clamp(10px, 2vw, 12px);
+
+}
+
+.contact-order{
+    border-radius: 10px;
+    /* border: solid yellow; */
+    width: 100%;
+
+}
+
+.products-order{
+    border-radius: 10px;
+    /* border: solid green; */
+    width: 100%;
+}
+
+.total-price{
+    display: flex;
+    background-color: #e25329;
+    text-align: center;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGIN */
+.loginContainer{
+    background-color: #e25329;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContent{
+    background-color: #ffff;
+    margin: 150px;
+    width: 100%;
+    height: 650px ;
+    border-radius: 20px;
+    display: flex;
+}
+
+.lottie{
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.lottie canvas{
+    max-width: 100%;
+    height: auto;
+}
+
+.loginFc{
+    flex: 1;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #fdf1a4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginSide{
+    width: 95%;
+}
+
+.loginTag{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo{
+    font-size: 16pt;
+}
+
+.loginForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginLabel{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.loginSubmit{
+    /* border: solid red; */
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.loginButton{
+    border-radius: 10px;
+    height: 40px;
+    width: 80px;
+    background-color: #e25329;
+    color: white;
+    border: none;
+    font-size: 12pt;
+    margin-bottom: 10px;
+}
+
+.formLabel{
+    margin-bottom: 10px;
+}
+
+.inputText{
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+.inputText.error{
+    border: solid red;
+}
+
+.errorMessage{
+    color: red;
+    font-size: 12pt;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+
+/* REGISTER */
+
+.registerContainer{
+    background-color: #e25329;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerContent{
+    background-color: #ffff;
+    margin: 150px;
+    width: 100%;
+    height: 650px ;
+    border-radius: 20px;
+    display: flex;
+}
+
+@media(max-width:768px){
+    h1{
+        font-size: 12pt;
+        margin-bottom: 10px;
+    }
+
+    .date{
+        display: none;
+    }
+
+    .table-column{
+        font-size: 10px;
+    }
+
+    .table-column th,
+    .table-column td{
+        padding: 5px;
+    }
+
+    /* PRODUCT */
+    .product-button{
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    .product-button span{
+        display: none;
+    }
+
+
+    /* HOME */
+    .card-header {
+        flex: 1;
+        padding: 5px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-tittle {
+        font-size: 11px;
+        gap: 2px;
+    }
+
+    .card-tittle p{
+        font-size: 7px;
+    }
+    
+    .icon {
+        background-color: #e25329;
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .card-header p{
+        font-size: 11px;
+    }
+
+    .statistik {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chart-container{
+        width: 85%;
+        height: 300px;
+        font-size: 9px;
+    }
+
+    /* LOGIN */
+
+    .lottie {
+        display: none;
+    }
+
+    .loginContent{
+        margin: 10px;
+        height: 500px;
+        width: 350px;
+    }
+
+    .inputText{
+        height: 20px;
+        padding: 5px;
+    }
+
+    .loginFc{
+        font-size: 12px;
+    }
+
+
+    /* MODAL */
+    .modal-container{
+        width: 90vw;
+        height: 80vh;
+    }
+
+    .modal-content{
+        flex-direction: column;
+        gap: 10px;
+        /* border: ; */
+    }
 }

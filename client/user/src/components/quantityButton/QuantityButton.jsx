@@ -13,9 +13,9 @@ export default function QuantityButton({quantity, setQuantity, stock, onQuantity
     }
     return(
         <div className="qbContainer">
-            <button onClick={()=>handleQuantityChange("up")} className="quantityButton">+</button>
+            <button onClick={()=>handleQuantityChange("up")} className="quantity_button">+</button>
             <span className="quantity">{quantity}</span>
-            <button onClick={()=>handleQuantityChange("down")} className="quantityButton">-</button>
+            <button onClick={()=>handleQuantityChange("down")} className="quantity_button">-</button>
         </div>
     )
 }
