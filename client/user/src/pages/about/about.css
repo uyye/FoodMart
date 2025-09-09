@@ -2,30 +2,55 @@
 .about-content{
     display: flex;
     flex-direction: column;
-    flex: 1;
     margin:40px;
     border: none;
-    height: 100vh;
+    /* min-height: 100vh; */
     border-radius: 50px;
     padding: 50px;
-    background-color: #FFDAB9  ;
+    /* background-color: #FFDAB9  ; */
+    /* border: solid red */
 }
 
-.about-up{
+.about-top{
     display: flex;
     /* border: solid red; */
     height: 70%;
     margin-bottom: 40px;
+    gap: 40px;
 }
 .about-introduce{
     display: flex;
     flex-direction: column;
-    flex: 1;
-    /* border: solid yellow; */
     padding: 5px;
     line-height: 1.5;
-
+    width: 50%;
+    font-size: clamp(10px, 2vw, 20px);
+    /* border: solid red; */
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 .about-introduce h1{
     font-size: 10pt;
@@ -37,41 +62,39 @@
 }
 
 .about-introduce img{
-    height: 100%;
+    height: 450px;
     width: 100%;
     border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
 }
-
-.about-down{
-    /* border: solid green; */
-    height: 30%;
+.data-length{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    margin-top: 20px;
+    /* border: solid red; */
+    /* justify-content: space-around */
 }
 
-.about-data{
-    /* border: solid red; */
-    width: 150px;
-    height: 150px;
+.data{
+    background-color: #e25329;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: none;
-    /* background-color: #ffff; */
-}
-
-.about-data h3{
-    font-size: 40pt;
-    font-weight: 100;
-}
-
-/* .about-information{
-    display: flex;
     flex: 1;
-    margin:20px;
-    border: solid red;
-    height: 100vh;
-} */
+    margin-left: 5px;
+    padding: 5px;
+    color: #fff;
+}
+
+
+@media (max-width:768px) {
+    .about-introduce{
+        width: 100%
+    }
+
+    .about-top {
+        flex-direction: column;
+    }
+
+}

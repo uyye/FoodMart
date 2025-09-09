@@ -7,14 +7,21 @@ import DetailButton from "../button/DetailButton"
 import OrderButton from "../button/OrderButton"
 import "./orderCard.css"
 import InvoiceModal from "../invoiceModal/InvoiceModal"
+import { useDispatch } from "react-redux"
+import { fetchInputOrder, fetchPayment } from "../../features/orders/orderSlice"
+import { useNavigate } from "react-router-dom"
 
 export default function OrderCard({order}) {
+    const dispatch = useDispatch()
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     
     const handleOpenModal = ()=>{setIsModalOpen(true)} 
     const handleCLoseModal = ()=>{setIsModalOpen(false)} 
-
+    
+    const handlePayment = async()=>{
+        await dispatch(fetchPayment(order.id))
+    }
     return(
         <>
             <div className="orderCard-container">
@@ -24,7 +31,11 @@ export default function OrderCard({order}) {
                         <p className="bf" >{capitalizeFirstLetter(order.User.name)}</p>
                         <p className="lf" >Order ID:{order.id}</p>
                     </div>
-                    <div><p className="status-tag">{order.status}</p></div>
+                    <div>
+                        <p className={order.status === 'pending' ? "status-tag-pending": "status-tag"}>
+                            {order.status}
+                        </p>
+                    </div>
                 </div>
                 <div className="ch">
                     <p>{formateDate(order.createdAt)}</p>
@@ -44,7 +55,7 @@ export default function OrderCard({order}) {
                         {
                             order.OrderDetails.map((item, index)=>{
                                 return(
-                                    <tr>
+                                    <tr key={index}>
                                         <td>{item.Product.name}</td>
                                         <td>{item.quantity}</td>
                                         <td>{formatIDR(item.subTotal)}</td>
@@ -61,8 +72,10 @@ export default function OrderCard({order}) {
                     <p>{formatIDR(order.totalPrice)}</p>
                 </div>
                 <div className="center">
-                    <OrderButton handle={handleOpenModal} >Cetak invoice</OrderButton>
                     <DetailButton>Lihat detail</DetailButton>
+                    {order.status === 'pending'?
+                    <OrderButton  handle={handlePayment}>Bayar sekarang</OrderButton>:
+                    <OrderButton handle={handleOpenModal} >Cetak invoice</OrderButton>}
                 </div>
             </div>
         </div>

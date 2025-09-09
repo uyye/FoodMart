@@ -9,7 +9,9 @@ const productSlice = createSlice({
         page:1,
         sort:"ASC",
         filter:"",
-        search:""
+        search:"",
+        loading:false,
+        error:null
     },
     reducers:{
         setProducts :(state, action)=>{
@@ -28,14 +30,21 @@ const productSlice = createSlice({
         setSearch: (state, action)=>{
             state.search = action.payload
         },
+        setLoading:(state, action)=>{
+            state.loading = action.payload
+        },
+        setError:(state, action)=>{
+            state.error = action.payload
+        }
     }
 })
 
-export const {setProducts, setPage, setSort, setFilter, setSearch} = productSlice.actions
+export const {setProducts, setPage, setSort, setFilter, setSearch, setLoading, setError} = productSlice.actions
 export const fetchProducts = ()=>{
     return async (dispatch, getState)=>{
         const {page, sort, filter, search} = getState().products  
-        try {        
+        try {  
+            dispatch(setLoading(true))      
             const {data} = await instance({
                 method:"get",
                 url:`/products`,
@@ -48,7 +57,9 @@ export const fetchProducts = ()=>{
             })
             dispatch(setProducts({products:data.products, totalItems:data.totalItems}))
         } catch (error) {
-            console.log(error);
+            dispatch(setError(error))
+        } finally{
+            dispatch(setLoading(false))
         }
     }
 }

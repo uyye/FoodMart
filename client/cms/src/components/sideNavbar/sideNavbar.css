@@ -1,120 +1,137 @@
-.sidebar{
-    /* position: absolute; */
-    box-shadow:0, 4px, 6px rgba(0, 0, 0, 0.1);
-    /* height: 100vh;  */
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    background-color: #e25329;
-    color: #fff;
-    transition: width 0.5s;
+.sidebar {
+  box-shadow: 0, 4px, 6px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #e25329;
+  color: #fff;
+  transition: width 0.5s;
 }
 
-.open{
-    width: 15rem;
+.open {
+  width: 15rem;
 }
 
-.closed{
-    width: 4rem;
+.closed {
+  width: 4rem;
 }
 
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    height: 5rem;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  height: 5rem;
 }
 
-.logoOpen{
-    width: 8rem;
-    border-radius: 0.25rem;
+.logoOpen {
+  width: 8rem;
+  border-radius: 0.25rem;
 }
 
-.logoClosed{
-    width: 0;
-    overflow: hidden;
+.logoClosed {
+  width: 0;
+  overflow: hidden;
 }
 
-.menuIcon{
-    cursor: pointer;
-    transition: transform 0.5s ;
+.menuIcon {
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 
-.menuIconClosed{
-    transform: rotate(180deg);
+.menuIconClosed {
+  transform: rotate(180deg);
 }
 
-.menuList{
-    flex-grow: 1;
+.menuList {
+  flex-grow: 1;
 }
 
-.menuItem{
-    position: relative;
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.menuItem {
+  position: relative;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.menuItem:hover{
-    background-color: #a53b1d ;
+.menuItem:hover {
+  background-color: #a53b1d;
 }
 
-.menuLabel{
-    transition: transform 0.5s, width 0.5s;
-    overflow: hidden;
+.menuLabel {
+  transition: transform 0.5s, width 0.5s;
+  overflow: hidden;
 }
 
-.tooltip{
-    position: absolute;
-    left: 4.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0.5rem;
-    background-color: #ffff;
-    color: black;
-    border-radius: 0.25rem;
-    box-shadow:0 4px 6px rgba(0, 0, 0, 0.1) ;
-    white-space: nowrap;
-    font-size: 0.75rem;
-    z-index:10 ;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
+.tooltip {
+  position: absolute;
+  left: 4.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  background-color: #ffff;
+  color: black;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
 .menuItem:hover .tooltip {
-    visibility: visible; /* Tampilkan saat hover */
-    opacity: 1; /* Set opacity menjadi penuh */
-  }
+  visibility: visible; /* Tampilkan saat hover */
+  opacity: 1; /* Set opacity menjadi penuh */
+}
 
-  .footer {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
-  
-  .userInfo {
-    transition: transform 0.5s, width 0.5s;
-    overflow: hidden;
-  }
-  
-  .hiddenUserInfo {
-    transform: translateX(6rem);
-    width: 0;
-  }
-  
-  .userEmail {
-    font-size: 0.75rem;
-  }
+/* BADGE */
+.badge {
+  height: 20px;
+  width: 20px;
+  background-color: #2196f3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
 
-  a{
-    text-decoration: none;
-    color: #ffff;
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.userInfo {
+  transition: transform 0.5s, width 0.5s;
+  overflow: hidden;
+}
+
+.hiddenUserInfo {
+  transform: translateX(6rem);
+  width: 0;
+}
+
+.userEmail {
+  font-size: 0.75rem;
+}
+
+a {
+  text-decoration: none;
+  color: #ffff;
+}
+
+@media (max-width: 768px) {
+  .open {
+    position: fixed;
+    z-index: 999;
+    height: 100vh;
   }
+}

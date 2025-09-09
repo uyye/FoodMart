@@ -56,6 +56,9 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty:{msg:"Phone number required"}
       }
     },
+    isRead:{
+      type:DataTypes.BOOLEAN
+    }
   }, {
     sequelize,
     modelName: 'Order',

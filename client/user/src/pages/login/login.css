@@ -108,10 +108,26 @@
     margin-left: 5px;
 }
 
+
 @media (max-width: 768px) {
     .lottie {
         display: none;
     }
-}
 
+    .loginContent{
+        margin: 10px;
+        height: 500px;
+        width: 350px;
+
+    }
+
+    .inputText{
+        height: 20px;
+        padding: 5px;
+    }
+
+    .loginFc{
+        font-size: 12px;
+    }
+}
 

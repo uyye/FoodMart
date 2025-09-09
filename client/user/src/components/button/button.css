@@ -37,12 +37,29 @@
     background-color: #D35400; /* Oranye lebih gelap */
     color: #FFFFFF; /* Teks putih */
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 5px;
+    /* font-size: 16px; */
     border-radius: 5px;
     cursor: pointer;
 }
 
 .detail-button:hover {
     background-color: #A04000; /* Oranye lebih gelap saat hover */
+}
+
+/* CANCEL */
+.cancel-button {
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 5px;
+    /* font-size: 16px; */
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.cancel-button:hover{
+    background-color: #A04000;
 }

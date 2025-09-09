@@ -1,8 +1,8 @@
 .qbContainer{
     display: flex;
     align-items: center;
-    gap:10px;
-    font-size: 16pt;
+    gap:2px;
+    font-size: 12px;
     color: #ffff;
 }
 
@@ -13,4 +13,26 @@
     background-color: #e25329;
     width: 80px;
     height: 40px;
+}
+
+.quantity_button{
+    background-color: #e25329;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    color: #ffff;
+}
+
+@media(max-width:768px){
+    .quantity{
+        width: 30px;
+        height: 20px;
+    }
+
+    .quantity_button{
+        width: 20px;
+        height: 20px;
+    }
+
 }

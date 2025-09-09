@@ -4,8 +4,7 @@ import { FaRegCopyright } from "react-icons/fa6";
 export default function Footer() {
     return(
         <footer className="footerContainer">
-                <div></div>
-                <div><p><FaRegCopyright/> PT.Lawah Cemara</p></div>
+                <div><span className="text-white">© 2025 MangaFood MFD. All rights reserved</span></div>
         </footer>
     )
 }

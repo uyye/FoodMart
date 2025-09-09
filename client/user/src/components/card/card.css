@@ -7,6 +7,11 @@
     color: #e25329;
 }
 
+.cardContainer:hover{
+    box-shadow: 0 0 10px #e25329;
+    transition: all 0.3s ease-in-out;
+}
+
 .cardImage{
     height: 75%;
     margin: 2px 2px 0px 2px;

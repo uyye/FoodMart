@@ -21,20 +21,22 @@ const userSlice = createSlice({
         },
         setUser:(state, action)=>{
             state.user = action.payload
+        },
+        setDeleteUser:(state, action)=>{
+            state.users = state.users.filter(user => user.id !== action.payload)
+        },
+        setAddUser:(state, action)=>{
+            state.users.push(action.payload)
         }
         
     }
 })
 
-export const {setUsers, setPage, setSearch, setUser} = userSlice.actions 
+export const {setUsers, setPage, setSearch, setUser, setDeleteUser, setAddUser} = userSlice.actions 
 
 export const fetchDataUser = ()=>{
     return async(dispatch, getState)=>{
-
         const {page, search} = getState().user
-        
-        console.log(search, "DIDALAM SEARCH");
-        
         try {
             const {data} = await instance({
                 method:"get",
@@ -43,8 +45,7 @@ export const fetchDataUser = ()=>{
                     page,
                     search
                 }
-            })   
-                        
+            })         
             dispatch(setUsers(data))
         } catch (error) {
             console.log(error);
@@ -60,6 +61,23 @@ export const fetchUserById = (id)=>{
                 url:`/users/profile/${id}`
             })
             dispatch(setUser(data))
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+}
+
+export const fetchDeleteUser = (id)=>{
+    return async (dispatch)=>{
+        try {
+            await instance({
+                method:"delete",
+                url:`/users/delete/${id}`,
+                headers:{"Authorization":`bearer ${localStorage.getItem("access_token")}`}
+            })
+
+            dispatch(setDeleteUser(id))
         } catch (error) {
             console.log(error);
             

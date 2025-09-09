@@ -63,6 +63,10 @@
     align-items: center;
 }
 
+.delete-button svg{
+    font-size: 16px;
+}
+
 .delete-button:hover {
     background-color: #A04000; /* Oranye lebih gelap saat hover */
 }
@@ -81,6 +85,23 @@
 
 .update-button:hover {
     background-color: #A04000; /* Oranye lebih gelap saat hover */
+}
+
+/* CANCEL */
+.cancel-button {
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.cancel-button:hover{
+    background-color: #A04000;
 }
 
 /* SUBMIT */
@@ -111,4 +132,69 @@
 
 .contact-button:hover{
     background-color: #45a049; /* Oranye lebih gelap saat hover */
+}
+
+/* WHATSAPPS */
+.whatsapps-button{
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    border: none;
+    background-color: #25D366;
+    cursor: pointer;
+    color: #FFFFFF;
+    margin-top:5px;
+    font-size: medium;
+}
+
+/* ADD  */
+.add-button{
+    background-color: #D35400; /* Oranye lebih gelap */
+    color: #FFFFFF; /* Teks putih */
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.add-button:hover{
+    background-color: #A04000;
+}
+
+@media(max-width:768px){
+    svg{
+        font-size: 12px;
+    }
+
+
+    .delete-button{
+        padding: 5px;
+    }
+
+    .delete-button span{
+        display: none;
+    }
+
+    .detail-button{
+        padding: 5px;
+    }
+
+    .detail-button span{
+        display: none;
+    }
+
+    .add-button{
+        padding: 5px;
+    }
+
+    .add-button span{
+        display: none;
+    }
 }
