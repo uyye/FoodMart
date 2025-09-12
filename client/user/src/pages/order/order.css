@@ -17,6 +17,7 @@
 }
 
 .order-content{
+    /* border:  solid red; */
     border: 1px solid #ddd;
     border-radius: 10px;
     margin: 20px;
@@ -29,7 +30,7 @@
 .tableColumn{
     margin-top: 20px;
     border-collapse: collapse ;
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 20px;
 }
 
@@ -46,6 +47,17 @@
     color: #ffff;
     border-top: 1px solid #ddd;
     background-color: #e25329;
+}
+
+@media (max-width:768px) {
+    .tableColumn{
+        font-size: 11px;
+    }
+
+    .tableColumn th,
+    .tableColumn td{
+        padding: 10px;
+    }
 }
 
 /* MODAL */
@@ -101,11 +113,6 @@
     margin-bottom: 5px;
 }
 
-.modal-image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 .modal-footer{
     display: flex;

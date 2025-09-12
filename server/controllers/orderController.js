@@ -63,7 +63,6 @@ class OrderController {
     } catch (error) {
       next(error);
       if (transaction) await transaction.rollback();
-      console.log(error);
     }
   }
 
@@ -85,7 +84,6 @@ class OrderController {
       res.status(200).json(data);
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -98,10 +96,8 @@ class OrderController {
         options.offset = (page - 1) * 10;
       }
       const data = await Order.findAll(options);
-      console.log(data);
       res.status(200).json(data);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -120,8 +116,6 @@ class OrderController {
       if (!data) {
         throw { name: "NotFound", status: 404, message: "Order not found" };
       }
-
-      console.log(data, "CEK DATA PEMBAYARAN");
 
       let parameter = {
         transaction_details: {
@@ -146,7 +140,6 @@ class OrderController {
       res.status(201).json(token);
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -160,9 +153,6 @@ class OrderController {
         include: [{ model: OrderDetail, include: { model: Product } }],
       });
 
-      console.log(JSON.stringify(orderData, null, 2));
-      ``;
-
       if (!orderData) {
         throw { name: "NotFound", status: 404, message: "order not found" };
       }
@@ -173,9 +163,7 @@ class OrderController {
       ) {
         orderData.status = "success";
         for (const item of orderData.OrderDetails) {
-          console.log(item.Product.stock, item.quantity);
           item.Product.stock = item.Product.stock - item.quantity;
-          console.log(item.Product.stock);
           await item.Product.save();
         }
 
@@ -194,10 +182,8 @@ class OrderController {
 
       await orderData.save();
       res.status(200).json({ message: "payment status updated successfully" });
-      console.log("payment status updated successfully");
     } catch (error) {
       next(error);
-      console.log(error);
     }
   };
 
@@ -225,7 +211,6 @@ class OrderController {
 
       res.status(200).json(order);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -253,7 +238,6 @@ class OrderController {
 
       res.status(200).json(data);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -269,7 +253,6 @@ class OrderController {
 
       res.status(200).json(data);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -277,8 +260,6 @@ class OrderController {
   static async findAllOrder(req, res, next) {
     try {
       const { filter, page } = req.query;
-      console.log(`${filter} ini filter, ${page} ini page`);
-
       let isRead;
 
       if (filter === "true") {
@@ -300,7 +281,6 @@ class OrderController {
       }
 
       if (page) {
-        console.log("MASUK PAGE", page);
         option.limit = 10;
         option.offset = (Number(page) - 1) * 10;
       }
@@ -309,7 +289,6 @@ class OrderController {
 
       res.status(200).json({ totalItems: count, orders: rows });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -331,7 +310,6 @@ class OrderController {
       await order.save();
       res.status(200).json({ message: "Marking success" });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

@@ -58,32 +58,6 @@ export default function Order() {
         <h1>Orders</h1>
         <p>{formateDate(new Date())}</p>
       </div>
-      {/* <hr  style={{border:'1px solid #ddd'}}/> */}
-      {/* <div className="order-content">
-                {
-                    loading? (
-                        <div className="loading-container">
-                            <ColorRing
-                            visible={true}
-                            height="80"
-                            width="80"
-                            ariaLabel="color-ring-loading"
-                            wrapperStyle={{}}
-                            wrapperClass="color-ring-wrapper"
-                            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-                            />
-                            <p>Loading...</p>
-                        </div>
-                    ):
-                    orders.length > 0 ?
-                    orders.map((item, index)=>{
-                        return(
-                            <OrderCard order={item} key={index}/>
-                        )
-                    }):
-                    <div className="loading-container">{token?"Belum ada pesanan":"Menu LOGIN ada di pojok kanan atas"}</div>
-                }
-            </div> */}
       <div className="order-content">
         <p>Today</p>
         <table className="tableColumn">

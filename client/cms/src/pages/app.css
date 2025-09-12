@@ -327,7 +327,7 @@ h2{
 .modal-data{
     /* border: solid black; */
     flex: 1;
-    height: 400px;
+    /* height: 400px; */
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -361,6 +361,7 @@ h2{
     flex-direction: column;
     gap: 5px;
     margin-bottom: 5px;
+    /* border: solid blue; */
 }
 
 
@@ -369,7 +370,7 @@ h2{
     border-radius: 5px;
     outline: none;
     padding: 5px; 
-    width: 100%;
+    /* width: 100%; */
     transition: border-color 0.3s ease-in-out;
 }
 
@@ -569,10 +570,12 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: solid red; */
 }
 
 .loginSide{
     width: 95%;
+    /* border:  solid green; */
 }
 
 .loginTag{
@@ -580,6 +583,7 @@ h2{
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    /* border: solid green; */
 }
 
 .logo{
@@ -605,7 +609,18 @@ h2{
     padding: 10px;
     width: 100%;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.loginSubmit-admin{
+    /* border: solid red; */
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -760,11 +775,16 @@ h2{
         font-size: 12px;
     }
 
+    .loginSubmit-admin{
+        display: flex;
+        flex-direction: row;
+    }
+
 
     /* MODAL */
     .modal-container{
         width: 90vw;
-        height: 80vh;
+        /* height: 80vh; */
     }
 
     .modal-content{
