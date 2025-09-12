@@ -27,7 +27,7 @@ export default function OrderDetail({ modal, id }) {
               <tr>
                 <th>No</th>
                 <th>Produk</th>
-                <th>Harga satuan</th>
+                <th>Harga</th>
                 <th>Qty</th>
                 <th>Total</th>
               </tr>

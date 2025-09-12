@@ -6,7 +6,6 @@ async function adminAuthorization(req, res, next) {
         next()
     } catch (error) {
         next(error)
-        console.log(error);
         
     }
 

@@ -125,7 +125,7 @@ export default function InputUser({ modal }) {
                   </p>
                 )}
               </div>
-              <div className="loginSubmit">
+              <div className="loginSubmit-admin">
                 <SubmitButton>Submit</SubmitButton>
                 <CancelButton onClose={modal}>Cancel</CancelButton>
               </div>

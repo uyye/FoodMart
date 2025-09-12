@@ -40,7 +40,6 @@ class ProductController {
       res.status(200).json({ totalItems: count, products: rows });
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -54,7 +53,6 @@ class ProductController {
       res.status(200).json(data);
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -102,7 +100,6 @@ class ProductController {
       res.status(201).json(result);
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -121,7 +118,6 @@ class ProductController {
 
       res.status(200).json({ message: "Delete product Successfully" });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -156,8 +152,6 @@ class ProductController {
         imageUrl: image,
       });
 
-      console.log(product, "CEK DATA AFTER EDIT");
-
       res.status(200).json({
         message: "Product updated successfully",
         product: {
@@ -166,7 +160,6 @@ class ProductController {
         },
       });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

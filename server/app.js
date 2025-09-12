@@ -21,9 +21,7 @@ const io = new Server(server, {
 
 io.on("connection", (socket)=>{
     const token = socket.handshake.auth.token
-    console.log(token, "ISI TOKEN BANG");
      if(!token){
-        console.log("No token provided");
         return socket.disconnect()
      }
     
@@ -31,12 +29,10 @@ io.on("connection", (socket)=>{
         const decoded = verifyToken(token)
         if(decoded.role === "admin"){
             socket.join("adminRoom")
-            console.log(`Admin connected: ${socket.id}`);
         }else{
             console.log(`Public user connected: ${socket.id}`);
         }
     } catch (error) {
-        console.log(error);
         socket.disconnect()
     }
 })
