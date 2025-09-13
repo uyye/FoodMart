@@ -30,6 +30,8 @@ const handlePaymentNotification = async (req, res, next) => {
       orderData.status = "failed";
     } else if (transaction_status === "pending") {
       orderData.status = "pending";
+    } else {
+      orderData.status = transaction_status; // simpan sesuai status Midtrans
     }
 
     await orderData.save();

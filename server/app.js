@@ -21,6 +21,7 @@ const io = new Server(server, {
 
 io.on("connection", (socket)=>{
     const token = socket.handshake.auth.token
+    
      if(!token){
         return socket.disconnect()
      }

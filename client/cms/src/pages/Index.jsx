@@ -11,7 +11,10 @@ export default function Index() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('MASUK KE INDEX');
+    
     socket.on("newOrder", (data) => {
+      console.log(data, 'CEK CEK')
       toast.info(data.message, { position: "top-right", autoClose: 3000 });
       dispatch(pushOneOrder(data.order));
     });
@@ -19,7 +22,7 @@ export default function Index() {
     return () => {
       socket.off("newOrder");
     };
-  }, []);
+  }, [dispatch]);
   return (
     <div className="container">
       <ToastContainer />

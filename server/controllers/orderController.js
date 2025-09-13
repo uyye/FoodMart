@@ -18,13 +18,16 @@ class OrderController {
     try {
       transaction = await sequelize.transaction();
 
-      const newOrder = await Order.create({
-        userId,
-        totalPrice: 0,
-        status: "pending",
-        addressShiping,
-        phoneNumber,
-      });
+      const newOrder = await Order.create(
+        {
+          userId,
+          totalPrice: 0,
+          status: "pending",
+          addressShiping,
+          phoneNumber,
+        },
+        { transaction }
+      );
 
       for (const item of products) {
         const product = await Product.findByPk(item.productId);
@@ -61,8 +64,8 @@ class OrderController {
         newOrder,
       });
     } catch (error) {
-      next(error);
       if (transaction) await transaction.rollback();
+      next(error);
     }
   }
 
@@ -103,7 +106,7 @@ class OrderController {
   }
 
   static async payment(req, res, next) {
-    let snap = new midtransClient.Midtrans.Snap({
+    let snap = new midtransClient.Snap({
       isProduction: false,
       serverKey: process.env.MIDTRANSSERVERKEY,
     });
@@ -139,6 +142,7 @@ class OrderController {
       const token = await snap.createTransaction(parameter);
       res.status(201).json(token);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
@@ -147,9 +151,10 @@ class OrderController {
     try {
       const notification = req.body;
       const { order_id, transaction_status } = notification;
+      const originalOrderId = order_id.split("-")[1];
 
       const orderData = await Order.findOne({
-        where: { id: order_id },
+        where: { id: originalOrderId },
         include: [{ model: OrderDetail, include: { model: Product } }],
       });
 
@@ -171,6 +176,7 @@ class OrderController {
           message: "You get new order",
           order: orderData,
         });
+        
       } else if (
         transaction_status === "deny" ||
         transaction_status === "cancel"
@@ -193,8 +199,10 @@ class OrderController {
       const year = now.getFullYear();
       const month = (now.getMonth() + 1).toString().padStart(2, "0");
 
-      const startDate = `${year}-${month}-01`;
-      const endDate = new Date(year, month, 1).toISOString().split("T")[0];
+      // const startDate = `${year}-${month}-01`;
+      // const endDate = new Date(year, month, 1).toISOString().split("T")[0];
+      const startDate = new Date(year, now.getMonth(), 1);
+      const endDate = new Date(year, now.getMonth() + 1, 1);
 
       const order = await Order.findAll({
         attributes: [
