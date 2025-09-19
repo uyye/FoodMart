@@ -7,11 +7,14 @@ const userSlice = createSlice({
         users:[],
         page:1,
         search:"",
-        user:{}
+        user:{},
+        totalUsers:0
     },
     reducers:{
         setUsers:(state, action)=>{
+            console.log(action.payload.length, "<---CEK TOTAL USER")
             state.users = action.payload
+            state.totalUsers = action.payload.length
         },
         setPage:(state, action)=>{
             state.page = action.payload

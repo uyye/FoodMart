@@ -66,11 +66,11 @@ export default function SideNavbar() {
             </ul>
 
             {/* FOOTER */}
-            <div className="footer">
+            <div onClick={handleLogout} className="footer">
                 <FaUserCircle size={30}/>
                 {open && (
-                    <div className="userInfo">
-                        <p onClick={handleLogout}>Admin</p>
+                    <div  className="userInfo">
+                        <p>Logout</p>
                     </div>
                 )}
             </div>

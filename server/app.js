@@ -1,4 +1,6 @@
-require("dotenv").config()
+if(process.env.NODE_ENV !== "production"){
+    require("dotenv").config()
+}
 
 const express = require("express");
 const http = require("http")
@@ -11,6 +13,10 @@ const { verifyToken } = require("./helpers/jwt");
 
 const app =  express()
 const server = http.createServer(app)
+
+app.get("/", (req, res)=>{
+    res.send('Hello welcome to FoodMart-API')
+})
 
 const io = new Server(server, {
     cors:{

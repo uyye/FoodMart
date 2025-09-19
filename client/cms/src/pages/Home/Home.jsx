@@ -22,10 +22,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchDataOrder, fetchOrderData, fetchOrderMontly, fetchTopOrder } from "../../features/orderSlice";
 import { fetchDataProduct } from "../../features/productSlice";
+import { fetchDataUser } from "../../features/userSlice";
 
 export default function Home() {
     const dispatch = useDispatch()
 
+    const totalUsers = useSelector((state)=>state.user.totalUsers)
     const products = useSelector((state)=>state.product.totalItems)
     const orders = useSelector((state)=>state.order.orders)
     const topOrder = useSelector((state)=>state.order.topOrder)
@@ -56,7 +58,7 @@ export default function Home() {
     const dataApp = [
         {label:"Orders", icon:<TbMoneybag size={40}/>, length:orders.length},
         {label:"Products", icon:<AiOutlineProduct size={40}/>, length:products},
-        {label:"Users", icon:<FaUsers size={40}/>, length:89},
+        {label:"Users", icon:<FaUsers size={40}/>, length:totalUsers},
     ]
 
     useEffect(()=>{
@@ -64,6 +66,7 @@ export default function Home() {
         dispatch(fetchOrderMontly())
         dispatch(fetchTopOrder())
         dispatch(fetchDataProduct())
+        dispatch(fetchDataUser())
     }, [])
 
     return(

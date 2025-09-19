@@ -620,7 +620,7 @@ h2{
     padding: 10px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     gap: 10px;
